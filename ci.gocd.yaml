@@ -18,6 +18,19 @@ pipelines:
               tasks:
                - exec: # indicates type of task
                    command: ls
+  yamlpipe2:
+    group: simple
+    materials:
+      mygit:  # this is the name of material
+        # says about type of material and url at once
+        git: https://github.com/anishvenkat/footest.git
+    stages:
+      - build: # name of stage
+          jobs:
+            build: # name of the job
+              tasks:
+               - exec: # indicates type of task
+                   command: ls
   "yaml-example": # definition of yaml-example pipeline
     group: yaml-example
     label_template: "${mygit[:8]}"
